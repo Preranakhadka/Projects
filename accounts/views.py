@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 def sign_up(request):
     context = {}
     form = UserCreationForm(request.POST or None)
+    if request.user and request.user.is_authenticated:
+	    return redirect('/')
     if request.method == "POST":
         if form.is_valid():
             user = form.save()
@@ -19,10 +21,11 @@ def sign_up(request):
 
 
 def login_user(request):
-	
     context = {}
     form = AuthenticationForm(request.POST or None)
     context['form'] = form
+    if request.user and request.user.is_authenticated:
+        return redirect('/')
     if request.method == 'POST':
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
