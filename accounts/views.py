@@ -43,3 +43,8 @@ def logout_user(request):
     #     logout(request)
     logout(request)
     return redirect('/accounts/login')
+
+def index_page(request):
+	return render(request,'index.html')
+
+
