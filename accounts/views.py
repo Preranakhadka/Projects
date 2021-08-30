@@ -16,9 +16,11 @@ def sign_up(request):
             user = form.save()
             login(request, user)
             return redirect('/')
-    context['form'] = form
+        else:
+            context['error'] = str(form.errors)
     return render(request, 'sign_up.html', context)
 
+    
 
 def login_user(request):
     context = {}
@@ -43,8 +45,4 @@ def logout_user(request):
     #     logout(request)
     logout(request)
     return redirect('/accounts/login')
-
-def index_page(request):
-	return render(request,'index.html')
-
 
