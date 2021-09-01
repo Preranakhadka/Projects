@@ -18,7 +18,7 @@ def sign_up(request):
             return redirect('/')
         else:
             context['error'] = str(form.errors)
-    return render(request, 'sign_up.html', context)
+    return render(request, 'accounts/sign_up.html', context)
 
 
 def login_user(request):
@@ -32,9 +32,9 @@ def login_user(request):
             return redirect('/')
         else:
             context['error'] = 'Username or password is incorrect!'
-            return render(request, 'login.html', context)
+            return render(request, 'accounts/login.html', context)
     else:
-        return render(request, 'login.html', context)
+        return render(request, 'accounts/login.html', context)
 
 
 def logout_user(request):

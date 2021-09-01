@@ -8,7 +8,7 @@ def home(request):
 	context = {}
 	images = request.user.image_set.all()
 	context['images'] = images
-	return render(request, 'image_index.html', context)
+	return render(request, 'photogallery/image_index.html', context)
 
 
 @login_required
