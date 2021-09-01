@@ -10,7 +10,7 @@ def sign_up(request):
     context = {}
     form = UserCreationForm(request.POST or None)
     if request.user and request.user.is_authenticated:
-	    return redirect('/')
+        return redirect('/')
     if request.method == "POST":
         if form.is_valid():
             user = form.save()
@@ -20,12 +20,9 @@ def sign_up(request):
             context['error'] = str(form.errors)
     return render(request, 'sign_up.html', context)
 
-    
 
 def login_user(request):
     context = {}
-    form = AuthenticationForm(request.POST or None)
-    context['form'] = form
     if request.user and request.user.is_authenticated:
         return redirect('/')
     if request.method == 'POST':
@@ -45,4 +42,3 @@ def logout_user(request):
     #     logout(request)
     logout(request)
     return redirect('/accounts/login')
-
