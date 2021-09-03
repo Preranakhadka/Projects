@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Expense
 
+# Create your views here.
+
 @login_required
 def home(request):
 	context = {}
@@ -17,6 +19,5 @@ def new_expenses(request):
 		user = request.user
 		items = request.POST['items']
 		Expense(price=price, category=category, user=user, items=items).save()
-	return redirect('/expenses')
+	return redirect('expenses/')
 
-# Create your views here.
