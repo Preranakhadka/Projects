@@ -10,13 +10,13 @@ def home(request):
 	return render(request, 'expenses/index_expenses.html', context)
 
 @login_required
-def index(request):
+def new_expenses(request):
 	if request.method == 'POST':
 		price = request.POST['price']
 		category = request.POST['category']
 		user = request.user
 		items = request.POST['items']
 		Expense(price=price, category=category, user=user, items=items).save()
-	return render(request, "expenses/index_expenses.html")
+	return redirect('/expenses')
 
 # Create your views here.
