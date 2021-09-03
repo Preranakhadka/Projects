@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="row">
-        
+         {% for each_expense in expenditure %}
             <div class="col-md-4">
                 <p>Price: {{ each_expense.price }}</p>
                 <p>Category: {{ each_expense.category }}</p>
@@ -61,6 +61,8 @@
                 <p>Upload Date: {{ each_expense.date }}</p>
                
             </div>
+        {% endfor %}
+            
     
     </div>
     </div>
