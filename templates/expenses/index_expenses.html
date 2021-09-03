@@ -27,24 +27,24 @@
                     <h1 class="fw-bold">Daily expenses</h1>
                 </div>
                 <div class="class-body">
-                    <form action="upload/" method="POST" class="form" enctype="multipart/form-data">
+                    <form action="/expenses/" method="POST" class="form" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label for ="title" class="form-label">Price</label>
-                            <input type="text" required name ="title" class="form-control">
-                        </div>
-                        <div class="dropdown mb-3">
-                               <button class="btn btn-primary dropdown-toggle" type="button"id="dropdownMenuButton" data-mdb-toggle="dropdown"aria-expanded="false">Category</button>
-                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#">Food</a></li>
-                                <li><a class="dropdown-item" href="#">Clothing</a></li>
-                                <li><a class="dropdown-item" href="#">Health</a></li>
-                                <li><a class="dropdown-item" href="#">Others</a></li>
-                                </ul>
+                            <label for="price" class="form-label">Price</label>
+                            <input id="price" type="number" required name ="price" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for ="description" class="form-label">Items</label>
-                            <input type="text" required name ="description" class="form-control">
+                            <label for="">Category</label>
+                            <select name="category">
+                                <option value="food">Food</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="health">Health</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="item" class="form-label">Items</label>
+                            <input id="item" type="text" required name="items" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-secondary">Save</button>
                     </form>
