@@ -27,14 +27,14 @@
                     <h1 class="fw-bold">Daily expenses</h1>
                 </div>
                 <div class="class-body">
-                    <form action="/expenses/" method="POST" class="form" enctype="multipart/form-data">
+                    <form action="/expenses/expenses/" method="POST" class="form" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
                             <input id="price" type="number" required name ="price" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="">Category</label>
+                            <label for="category">Category</label>
                             <select name="category">
                                 <option value="food">Food</option>
                                 <option value="clothing">Clothing</option>
@@ -58,13 +58,9 @@
                 <p>Price: {{ each_expense.price }}</p>
                 <p>Category: {{ each_expense.category }}</p>
                 <p>Items: {{ each_expense.items }}</p>
-                <p>Upload Date: {{ each_expense.date }}</p>
-               
+                <p>Upload Date: {{ each_expense.date }}</p>    
             </div>
-        {% endfor %}
-            
-    
-    </div>
+        {% endfor %} 
     </div>
 </div>
 </body>

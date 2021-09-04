@@ -19,5 +19,5 @@ def new_expenses(request):
 		user = request.user
 		items = request.POST['items']
 		Expense(price=price, category=category, user=user, items=items).save()
-	return redirect('expenses/')
+	return redirect('/expenses/')
 
