@@ -52,15 +52,28 @@
             </div>
         </div>
     </div>
-    <div class="row">
-         {% for each_expense in expenditure %}
-            <div class="col-md-4">
-                <p>Price: {{ each_expense.price }}</p>
-                <p>Category: {{ each_expense.category }}</p>
-                <p>Items: {{ each_expense.items }}</p>
-                <p>Upload Date: {{ each_expense.date }}</p>    
-            </div>
+    <div class="container">
+        <table class="table" border="1" cellpadding="5" cellspacing="5" width="100%" > 
+        
+          
+            <tr>
+                <th> Price</th>
+                <th> Category</th>
+                <th> Items</th>
+                <th> Date</th>
+            </tr>
+        {% if expenditure %}
+        {% for obj in expenditure %}
+            <tr>
+                <td>{{ obj.price }}</td>
+                <td>{{ obj.category }}</td>
+                <td>{{ obj.items }}</td>
+                <td>{{ obj.date }}</td>
+            </tr>
+       
         {% endfor %} 
+        {% endif %}
+        </table>
     </div>
 </div>
 </body>

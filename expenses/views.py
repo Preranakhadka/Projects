@@ -6,9 +6,8 @@ from .models import Expense
 
 @login_required
 def home(request):
-	context = {}
-	expenditure = request.user.expense_set.all()
-	context['expenditure'] = expenditure
+	expenditure = Expense.objects.all()
+	context={"expenditure": expenditure}
 	return render(request, 'expenses/index_expenses.html', context)
 
 @login_required
