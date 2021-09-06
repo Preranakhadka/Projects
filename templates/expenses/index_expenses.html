@@ -27,7 +27,7 @@
                     <h1 class="fw-bold">Daily expenses</h1>
                 </div>
                 <div class="class-body">
-                    <form action="/expenses/expenses/" method="POST" class="form" enctype="multipart/form-data">
+                    <form action="/expenses/create/" method="POST" class="form" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
@@ -53,9 +53,7 @@
         </div>
     </div>
     <div class="container">
-        <table class="table" border="1"  > 
-        
-          
+        <table class="table" border="1"  >
             <tr>
                 <th> Price</th>
                 <th> Category</th>
@@ -72,8 +70,8 @@
                 <td>{{ obj.category }}</td>
                 <td>{{ obj.items }}</td>
                 <td>{{obj.date}}</td>
-                <td><a href="{% url 'expenses:edit_expenses' % " ><button type="button" class="btn btn-default"><i class="fas fa-edit"></i>Edit</button></a></td>
-                <td><a href="{% url 'expenses:delete_expenses' % " ><button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i>Delete</button></a></td>
+                <td><a href="/expenses/edit?id={{ obj.id }}" ><button type="button" class="btn btn-default"><i class="fas fa-edit"></i>Edit</button></a></td>
+                <td><a href="/expenses/delete?id={{ obj.id }}" onclick="return confirm('Are you sure ?')"><button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i>Delete</button></a></td>
                 
         </tr>
        

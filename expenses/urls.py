@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('expenses/', views.new_expenses, name="expenses"),
-    path('expenses/', views.edit_expenses, name="expenses"),
-
+    path('create/', views.new_expenses, name="expenses"),
+    path('edit/', views.edit_expenses, name="edit-expenses"),
+    path('delete/', views.delete_expenses, name="delete-expenses"),
 
 ]

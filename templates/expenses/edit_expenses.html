@@ -1,0 +1,22 @@
+<form action="/expenses/edit/" method="POST" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input id="price" value="{{ expense.price }}" type="number" required name ="price" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="category">Category</label>
+        <select name="category">
+            <option value="food" {% if expense.category == 'food' %} selected{% endif %}>Food</option>
+            <option value="clothing" {% if expense.category == 'clothing' %} selected{% endif %}>Clothing</option>
+            <option value="health" {% if expense.category == 'health' %} selected{% endif %}>Health</option>
+            <option value="others" {% if expense.category == 'others' %} selected{% endif %}>Others</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="item" class="form-label">Items</label>
+        <input id="item" value="{{ expense.items }}" type="text" required name="items" class="form-control">
+    </div>
+    <input type="hidden" name="id" value="{{ expense.id }}">
+    <button type="submit" class="btn btn-secondary">Update</button>
+</form>
