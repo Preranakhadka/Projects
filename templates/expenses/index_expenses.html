@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="container">
-        <table class="table" border="1" cellpadding="5" cellspacing="5" width="100%" > 
+        <table class="table" border="1"  > 
         
           
             <tr>
@@ -61,6 +61,9 @@
                 <th> Category</th>
                 <th> Items</th>
                 <th> Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
             </tr>
         {% if expenditure %}
         {% for obj in expenditure %}
@@ -68,12 +71,16 @@
                 <td>{{ obj.price }}</td>
                 <td>{{ obj.category }}</td>
                 <td>{{ obj.items }}</td>
-                <td>{{ obj.date }}</td>
-            </tr>
+                <td>{{obj.date}}</td>
+                <td><a href="{% url 'expenses:edit_expenses' % " ><button type="button" class="btn btn-default"><i class="fas fa-edit"></i>Edit</button></a></td>
+                <td><a href="{% url 'expenses:delete_expenses' % " ><button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i>Delete</button></a></td>
+                
+        </tr>
        
         {% endfor %} 
         {% endif %}
         </table>
+
     </div>
 </div>
 </body>
